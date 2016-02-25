@@ -2,14 +2,19 @@
 <html>
 <head>
 <title>IPM</title>
-<!--<link rel="stylesheet" href="style.css">-->
+<link rel="stylesheet" href="style.css">
 
 <style type="text/css">
 
 </style>
 
 <script type="text/javascript">
-  function toggleVisible(id) {    
+  function toggleVisible(id) { 
+    var e = document.getElementById(id);
+    if(e.style.display == 'block')
+        e.style.display = 'none';
+    else
+        e.style.display = 'block';
   }
 
 </script>
@@ -17,21 +22,6 @@
 <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 
@@ -40,59 +30,6 @@
 <h1 style="color: green">Interfaces Pessoa M&aacute;quina 2015-16</h1>
 <h2>Grupo 12 - Turno IIPM51113L04</h2>
 
- <section id="team" class="bg-light-gray">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <h2 class="section-heading">Our Amazing Team</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="team-member">
-                                <img src="images/filipe.png" class="img-thumbnail" alt="" width="256" height="256">
-                                <h4>Filipe Fernandes</h4>
-                                <ul class="list-inline social-buttons">
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="team-member">
-                                <img src="images/gabriel.png" class="img-thumbnail" alt="" width="256" height="256">
-                                <h4>Gabriel Freire</h4>
-                                <ul class="list-inline social-buttons">
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="team-member">
-                                <img src="images/vultos.png" class="img-thumbnail" alt="" width="197" height="197">
-                                <h4>João Vultos</h4>
-                                <ul class="list-inline social-buttons">
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 <table align=center>
   <tr>
     <td width="33%">João Plancha da Silva</td>
@@ -115,7 +52,7 @@
 <p>
 
 <div id="at" class="section">
-<h2 class="section">An&aacute;lise de Tarefas</h2>
+<h2 class="section" onclick="toggleVisible('at_inner');">An&aacute;lise de Tarefas</h2>
 <div id="at_inner" class="inner_section">
 <a href="questionario1.html">Question&aacute;rio para an&aacute;lise de tarefas</a> <br />
 <a href="questionario2.html">Question&aacute;rio para an&aacute;lise de tarefas (melhorado)</a> <br />
@@ -125,7 +62,7 @@
 </div>
 
 <div id="mc" class="section">
-<h2 class="section">Modelo Conceptual</h2>
+<h2 class="section" onclick="toggleVisible('mc_inner');">Modelo Conceptual</h2>
 <div id="mc_inner" class="inner_section">
 <a href="mod-conceptual1.html">Modelo Conceptual</a> <br />
 <a href="mod-conceptual2.html">Modelo Conceptual (melhorado)</a> <br />
@@ -133,7 +70,7 @@
 </div>
 
 <div id="proto" class="section">
-<h2 class="section">Prot&oacute;tipos</h2>
+<h2 class="section" onclick="toggleVisible('proto_inner');">Prot&oacute;tipos</h2>
 <div id="proto_inner" class="inner_section">
 <a href="pbf1.html">PBF</a> <br />
 <a href="pbf2.html">PBF (melhorado)</a> <br />
@@ -147,7 +84,7 @@
 </div>
 
 <div id="au" class="section">
-<h2 class="section">Avalia&ccedil;&atilde;o com Utilizadores</h2>
+<h2 class="section" onclick="toggleVisible('au_inner');">Avalia&ccedil;&atilde;o com Utilizadores</h2>
 <div id="au_inner" class="inner_section">
 <a href="tarefas-criterios1.html">Tarefas e Crit&eacute;rios de usabilidade</a> <br />
 <a href="tarefas-criterios2.html">Tarefas e Crit&eacute;rios de usabilidade (melhorado)</a> <br />
