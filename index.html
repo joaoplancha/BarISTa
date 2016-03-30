@@ -77,11 +77,11 @@
             $(window).bind("resize", ScaleSlider);
             $(window).bind("orientationchange", ScaleSlider);
             //responsive code end
-
+            
             $('#buy-button').on('click', function(e) {
-                var currentSlideId = e.target.id;
+                var currentSlideId = $('.jssort01-99-66 .p.pav').html();
                 localStorage.setItem('id', currentSlideId);
-                location.href="payment.html";
+                location.href="payment.html";   
             });
         });
     </script>
