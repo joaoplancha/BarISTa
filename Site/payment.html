@@ -1,21 +1,20 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Notebook</title>
+<body>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="grid.css" rel="stylesheet">
-</head>
+<div id="result"></div>
 
 <script>
-function getItem() {
-	var item = localStorage.getItem('id');
-	return item;
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Smith");
+    // Retrieve
+    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
-document.getElementById("demo").innerHTML = getItem();
 </script>
 
-<p id="demo"></p>
+</body>
 </html>
