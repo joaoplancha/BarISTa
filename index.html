@@ -77,11 +77,11 @@
             $(window).bind("resize", ScaleSlider);
             $(window).bind("orientationchange", ScaleSlider);
             //responsive code end
-
-            $('#buy-button').on('click', function() {
-                var currentSlideId = $(this).data('id');
-                localStorage.setItem('id', 'mane');
-                location.href="payment.html";
+            
+            $('#buy-button').on('click', function(e) {
+                var currentSlideId = $('.jssort01-99-66 .p.pav').html();
+                localStorage.setItem('id', currentSlideId);
+                location.href="payment.html";   
             });
         });
     </script>
@@ -300,14 +300,7 @@
         <span data-u="arrowright" class="jssora05r" style="top:158px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>
         <button id="buy-button" class="button">Buy</button>
     </div>
-
- 
         <img class="center-block" id="plate" src="img/alessi-tonale-beechwood-plate-1.jpg" width=450/>
-    </div>
-
-
-    
-
-    <!-- #endregion Jssor Slider End -->
+   </div>
 </body>
 </html>
