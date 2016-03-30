@@ -78,8 +78,8 @@
             $(window).bind("orientationchange", ScaleSlider);
             //responsive code end
 
-            $('#buy-button').on('click', function() {
-                var currentSlideId = $(this).data('id');
+            $('#buy-button').on('click', function(e) {
+                var currentSlideId = e.target.id;
                 localStorage.setItem('id', 'mane');
                 location.href="payment.html";
             });
