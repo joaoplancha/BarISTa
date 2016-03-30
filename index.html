@@ -80,7 +80,7 @@
 
             $('#buy-button').on('click', function(e) {
                 var currentSlideId = e.target.id;
-                localStorage.setItem('id', 'mane');
+                localStorage.setItem('id', currentSlideId);
                 location.href="payment.html";
             });
         });
