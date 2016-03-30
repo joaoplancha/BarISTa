@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Notebook</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="grid.css" rel="stylesheet">
+</head>
+
+<script>
+function getItem() {
+	var item = localStorage.getItem('id');
+	return item;
+}
+document.getElementById("demo").innerHTML = getItem();
+</script>
+
+<p id="demo"></p>
+</html>
