@@ -10,6 +10,22 @@
   width: 100px;
   border-radius: 50%;
 }
-
+#history {
+  background-color: #be9b7b;
+  padding: 20px;
+  margin: 20px;
+}
+#pedido {
+  background-color: #be9b7b;
+  padding: 20px;
+  margin: 20px;
+}
+body{
+  background-color: #3c2f2f;
+}
+#encomendar{
+  margin-top:20px;
+  height: 210px;
+}
 
 
