@@ -7,6 +7,16 @@
   height: 100px;
 }
 
+.btn-danger {
+  position: relative;
+  right: 19%;
+}
+
+h4 {
+  position: relative;  
+  right: 10%;
+}
+
 .btn-m {
   margin: 10px;
   height: 100px;

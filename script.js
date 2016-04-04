@@ -7,6 +7,7 @@ function hideElements() {
 }
 
 var total = 0;
+
 function updatePedidoTotal(price) {
   total += price;
   $("#pedidoTotal").text(total + "€");
@@ -14,6 +15,11 @@ function updatePedidoTotal(price) {
 
 function getTotal() {
   return total;
+}
+
+function resetTotal() {
+  total = 0;
+  $("#pedidoTotal").text(total + "€");
 }
 
 function addItemToPedido(name, price) {
@@ -26,14 +32,14 @@ function addItemToPedido(name, price) {
   updatePedidoTotal(price);
 }
 
-function convertPedidoTableToArray(){
+function convertPedidoTableToArray() {
   var array = [];
   $("#tabela-pedido tr").has("td").each(function() {
     var arrayItem = {};
     $('td', $(this)).each(function(index, item) {
       arrayItem[headers[index]] = $(item).html();
-  });
-  array.push(arrayItem);
+    });
+    array.push(arrayItem);
   });
 }
 
@@ -58,8 +64,9 @@ function removeItemFromPedido() {
   //TODO
 }
 
-function deletePedido() {
-  //TODO
+function deleteTableItems(tableid) {
+  var table = document.getElementById(tableid);
+
 }
 
 var beerArray = [];
@@ -79,28 +86,35 @@ $(document).ready(function() {
     $("#encomendar").toggle();
   });
 
-  $("#encomendar").click();
+  $("#encomendar").click(function() {
+    addPedidoToHistory(getTotal());
+  });
 
   $("#history-btn").click(function() {
     $("#history").toggle();
   });
 
   $("#beer").click(function() {
-    addItemToPedido('Cerveja',2);
+    addItemToPedido('Cerveja', 2);
   });
   $("#wine").click(function() {
-    addItemToPedido('Vinho',6.5);
+    addItemToPedido('Vinho', 6.5);
   });
   $("#cocktail").click(function() {
-    addItemToPedido('Cocktail',6.5);
+    addItemToPedido('Cocktail', 6.5);
   });
   $("#snack").click(function() {
-    addItemToPedido('Snack',1);
+    addItemToPedido('Snack', 1);
   });
   $("#soda").click(function() {
-    addItemToPedido('Refrigerante',2);
+    addItemToPedido('Refrigerante', 2);
   });
   $("#coffee").click(function() {
-    addItemToPedido('Café',1);
+    addItemToPedido('Café', 1);
+  });
+
+  $("#cancel-btn").click(function() {
+    $("#tabela-pedido").find("td").remove();
+    resetTotal();
   });
 });
