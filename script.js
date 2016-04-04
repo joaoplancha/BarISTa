@@ -6,14 +6,14 @@ function hideElements() {
   $("#encomendar").hide();
 }
 
-function populateBarWithArray(array) {
-  //TODO
-}
-
 var total = 0;
 function updatePedidoTotal(price) {
   total += price;
   $("#pedidoTotal").text(total + "€");
+}
+
+function getTotal() {
+  return total;
 }
 
 function addItemToPedido(name, price) {
@@ -35,10 +35,24 @@ function convertPedidoTableToArray(){
   });
   array.push(arrayItem);
   });
-  console.log(array);
 }
 
+function addPedidoToHistory(price) {
+  var pedidoArray = convertPedidoTableToArray();
+  var table = document.getElementById("tabela-history");
+  var row = table.insertRow(table.rows.length);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var randomDate = Math.floor((Math.random() * 28) + 1) + "/" + Math.floor((Math.random() * 12) + 1) + "/" + Math.floor((Math.random() * 16 + 2000) + 1);
+  cell1.innerHTML = randomDate;
+  cell2.innerHTML = array;
+  cell3.innerHTML = price;
+}
 
+function populateBarWithArray(array) {
+  //TODO
+}
 
 function removeItemFromPedido() {
   //TODO
@@ -54,6 +68,7 @@ var snacksArray = [];
 
 $(document).ready(function() {
   hideElements();
+
   $("#m").click(function() {
     $("#m-sub-menu").toggle();
   });
@@ -64,10 +79,12 @@ $(document).ready(function() {
     $("#encomendar").toggle();
   });
 
+  $("#encomendar").click();
+
   $("#history-btn").click(function() {
     $("#history").toggle();
   });
-  
+
   $("#beer").click(function() {
     addItemToPedido('Cerveja',2);
   });
