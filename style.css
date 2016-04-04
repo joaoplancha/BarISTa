@@ -2,30 +2,44 @@
   padding: 20px;
   background-color: #4b3832;
 }
+
 .btn-item {
   height: 100px;
 }
+
 .btn-m {
+  margin: 10px;
   height: 100px;
   width: 100px;
   border-radius: 50%;
+  font-size: 40px;
 }
+
 #history {
   background-color: #be9b7b;
   padding: 20px;
   margin: 20px;
 }
+
+span {
+  position: relative;
+  left: 40%;
+  top: 20px;
+}
+
 #pedido {
   background-color: #be9b7b;
   padding: 20px;
   margin: 20px;
 }
-body{
+
+body {
   background-color: #3c2f2f;
 }
-#encomendar{
-  margin-top:20px;
-  height: 210px;
+
+#encomendar {
+  position: relative;
+  margin-top: 20px;
+  height: 177px;
+  right: 55%;
 }
-
-
