@@ -1,0 +1,55 @@
+#menu-items {
+  padding: 20px;
+  background-color: #4b3832;
+}
+
+.btn-item {
+  height: 100px;
+}
+
+.btn-danger {
+  position: relative;
+  right: 19%;
+}
+
+h4 {
+  position: relative;  
+  right: 10%;
+}
+
+.btn-m {
+  margin: 10px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  font-size: 40px;
+}
+
+#history {
+  background-color: #be9b7b;
+  padding: 20px;
+  margin: 20px;
+}
+
+span {
+  position: relative;
+  left: 40%;
+  top: 20px;
+}
+
+#pedido {
+  background-color: #be9b7b;
+  padding: 20px;
+  margin: 20px;
+}
+
+body {
+  background-color: #3c2f2f;
+}
+
+#encomendar {
+  position: relative;
+  margin-top: 20px;
+  height: 177px;
+  right: 55%;
+}

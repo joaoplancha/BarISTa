@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+	<title>Titulo</title> 
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div id="header">Cor</div>
+	<div id="smaller-header">RGB, CMY e HSV</div>
+
+	<table>
+		<tr>
+			<td>RGB</td>
+			<td>CMYK</td>
+			<td>HSV</td>
+		</tr>
+
+		<tr>
+			<td><img id="rgb" onClick="changeImage()" src="rgb.jpg" width="150px"></td>
+			<td><img src="hsv.png" width="150"></td>
+			<td><img src="cmy.gif" width="150"></td>
+		</tr>
+	</table>
+
+	<script>
+	console.log("Hello!");
+
+	function changeImage() {
+		var image = document.getElementById('rgb'); 
+		image.src = "error.png";
+  	}
+	</script>
+</body>
+</html>
