@@ -6,6 +6,7 @@ function hideElements() {
   $("#encomendar").hide();
   $("#waiting").hide();
   $("#pedido-feito").hide();
+  $("#base").hide();
 }
 
 var total = 0;
@@ -32,6 +33,7 @@ function addItemToPedido(name, price) {
   cell1.innerHTML = name;
   cell2.innerHTML = price + "€";
   updatePedidoTotal(price);
+
 }
 
 function itemAlreadyExists(itemName) {
@@ -62,26 +64,53 @@ function addPedidoToHistory(price) {
   cell3.innerHTML = price;
 }
 
-function populateBarWithArray(array) {
-  //TODO
-}
-
 function removeItemFromPedido() {
   //TODO
 }
 
 function deleteTableItems(tableid) {
   var table = document.getElementById(tableid);
-
 }
 
-var beerArray = [];
-var wineArray = [];
-var snacksArray = [];
+var beerArray = [
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Maluco", "2€", "Quem bebe esta cerveja até fica maluco!", "alc. 8.3% vol"],
+  ["Cerveja Soft", "2€", "Cerveja com baixo teor alcoólico", "alc. 0.01% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
+  ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"]
+];
 
+var wineArray = [
+  ["Vinho Bom", "40€", "Vinho do bom.", "alc. 16% vol"]
+];
+
+var sodaArray = [
+  ["Coke", "2€", "Refrigerante bastante refrescante", "10 kcal"]
+];
+
+var cocktailArray = [
+  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"]
+];
+
+var snacksArray = [
+  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"]
+];
+
+var coffeeArray = [
+  ["Café Expresso", "1€", "Expresso com bastantes opções", "25 kcal"]
+  ];
 $(document).ready(function() {
   hideElements();
-  
   $("#m").click(function() {
     if (!$("#m-sub-menu").is(":visible"))
       $("#m-sub-menu").toggle();
@@ -89,7 +118,6 @@ $(document).ready(function() {
       hideElements();
     }
   });
-
   $("#menu").click(function() {
     $("#pedido-feito").hide();
     $("#waiting").hide();
@@ -111,7 +139,6 @@ $(document).ready(function() {
     if (confirmation) {
       hideElements();
     }
-
   });
 
   $("#history-btn").click(function() {
@@ -120,25 +147,65 @@ $(document).ready(function() {
 
   $("#beer").click(function() {
     addItemToPedido('Cerveja', 2);
+    var ementa = $('#ementa').DataTable({
+      data: beerArray,
+      select: true,
+      "bDestroy": true,
+      "select":true
+    });
+    $("#base").toggle();
   });
   $("#wine").click(function() {
     addItemToPedido('Vinho', 6.5);
+    var ementa = $('#ementa').DataTable({
+      data: wineArray,
+      select: true,
+      "bDestroy": true
+    });
+    $("#base").toggle();
   });
   $("#cocktail").click(function() {
     addItemToPedido('Cocktail', 6.5);
-  });
-  $("#snack").click(function() {
-    addItemToPedido('Snack', 1);
-  });
-  $("#soda").click(function() {
-    addItemToPedido('Refrigerante', 2);
-  });
-  $("#coffee").click(function() {
-    addItemToPedido('Café', 1);
+    var ementa = $('#ementa').DataTable({
+      data: cocktailArray,
+      select: true,
+      "bDestroy": true
+    });
+    $("#base").toggle();
   });
 
-  $("#cancel-btn").click(function() {
-    $("#tabela-pedido").find("td").remove();
-    resetTotal();
-  });
+$("#snack").click(function() {
+  addItemToPedido('Snack', 1);
+  var ementa = $('#ementa').DataTable({
+    data: snacksArray,
+    select: true,
+    "bDestroy": true
+});
+  $("#base").toggle();
+});
+
+$("#soda").click(function() {
+addItemToPedido('Refrigerante', 2);
+var ementa = $('#ementa').DataTable({
+  data: sodaArray,
+  select: true,
+  "bDestroy": true
+});
+$("#base").toggle();
+});
+$("#coffee").click(function() {
+addItemToPedido('Café', 1);
+var ementa = $('#ementa').DataTable({
+  data: coffeeArray,
+  select: true,
+  "bDestroy": true
+});
+$("#base").toggle();
+});
+
+$("#cancel-btn").click(function() {
+$("#tabela-pedido").find("td").remove();
+resetTotal();
+});
+$("#ementa").DataTable();
 });
