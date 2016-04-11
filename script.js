@@ -4,6 +4,8 @@ function hideElements() {
   $("#history").hide();
   $("#pedido").hide();
   $("#encomendar").hide();
+  $("#waiting").hide();
+  $("#pedido-feito").hide();
 }
 
 var total = 0;
@@ -30,6 +32,11 @@ function addItemToPedido(name, price) {
   cell1.innerHTML = name;
   cell2.innerHTML = price + "€";
   updatePedidoTotal(price);
+
+}
+
+function itemAlreadyExists(itemName) {
+
 }
 
 function convertPedidoTableToArray() {
@@ -75,19 +82,36 @@ var snacksArray = [];
 
 $(document).ready(function() {
   hideElements();
-
+  
   $("#m").click(function() {
-    $("#m-sub-menu").toggle();
+    if (!$("#m-sub-menu").is(":visible"))
+      $("#m-sub-menu").toggle();
+    else {
+      hideElements();
+    }
   });
 
   $("#menu").click(function() {
+    $("#pedido-feito").hide();
+    $("#waiting").hide();
     $("#menu-items").toggle();
     $("#pedido").toggle();
     $("#encomendar").toggle();
   });
 
   $("#encomendar").click(function() {
-    addPedidoToHistory(getTotal());
+    var confirmation = confirm("Tem a certeza?");
+    if (confirmation) {
+      hideElements();
+      $("#pedido-feito").show();
+      $("#waiting").show();
+    }
+  });
+  $("#ultimo-cancelar").click(function() {
+    var confirmation = confirm("Tem a certeza?");
+    if (confirmation) {
+      hideElements();
+    }
   });
 
   $("#history-btn").click(function() {

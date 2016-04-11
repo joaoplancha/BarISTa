@@ -2,43 +2,57 @@
   <title>BarISTa</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
   <!-- Top Item Menu Bar -->
   <div id="menu-items" class="row">
-    <div class="col-md-2">
+    <div class="col-lg-2">
       <button id="beer" class="btn btn-lg btn-item btn-block"><img src="img/cerveja.png" height="60pt" />
         <p>Cervejas</p></button>
     </div>
-    <div class="col-md-2">
+    <div class="col-lg-2">
       <button id="wine" class="btn btn-lg btn-item btn-block"><img src="img/vinho.png" height="60pt" />
         <p>Vinhos</p></button>
     </div>
-    <div class="col-md-2">
+    <div class="col-lg-2">
       <button id="cocktail" class="btn btn-lg btn-item btn-block"><img src="img/cocktail.png" height="60pt" />
         <p>Cocktails</p></button>
     </div>
-    <div class="col-md-2">
+    <div class="col-lg-2">
       <button id="snack" class="btn btn-lg btn-item btn-block"><img src="img/onion_rings.png" height="60pt" />
         <p>Snacks</p></button>
     </div>
-    <div class="col-md-2">
+    <div class="col-lg-2">
       <button id="soda" class="btn btn-lg btn-item btn-block"><img src="img/cola.png" height="60pt" />
         <p>Refrigerantes</p></button>
     </div>
-    <div class="col-md-2">
+    <div class="col-lg-2">
       <button id="coffee" class="btn btn-lg btn-item btn-block"><img src="img/cafe.png" height="60pt" />
         <p>Café</p></button>
     </div>
   </div>
   <!-- Top Bar End -->
   <!-- Container com o Pedido e o Historico -->
+
+
+  <div id="waiting" class="waiting"></div>
+
+  <div id="pedido-feito">
+    <h1 style="color:white" id="last-header" class="text-center">Pedido enviado. Por favor aguarde.</h1><button id="ultimo-cancelar" class="center-block btn btn-primary">Cancelar Pedido</button>
+
+
+  </div>
+
+
   <div class="container">
     <div class="row">
-      <div id="history" class="col-lg-5">
+      <!-- ex-tabela historico
+      <div id="history" class="col-xs-5">
         <h4 class="text-center"> Histórico </h4>
         <table id="tabela-history" class="table table-striped">
           <tr>
@@ -47,22 +61,24 @@
             <th>Preço</th>
         </table>
       </div>
-      <div id="pedido" class="col-lg-5">
-        <h4 class="text-center"><button id="cancel-btn" class="btn btn-danger btn-md">Cancelar Pedido</button>Pedido</h4>
-        <table id="tabela-pedido" class="table table-striped">
-          <tr>
-            <th>Nome</th>
-            <th>Preço</th>
-          </tr>
-          <tr>
-            <th>Total:</th>
-            <th id="pedidoTotal"></th>
-        </table>
-      </div>
-      <div class="col-lg-1">
-        <button id="encomendar" class="btn btn-success">Encomendar</button>
-      </div>
+      -->
     </div>
+    <div id="pedido" class="col-md-1 col-md-offset-7">
+      <h4 class="text-center"><button id="cancel-btn" class="btn btn-danger btn-md">Cancelar Pedido</button>Pedido</h4>
+      <table id="tabela-pedido" class="table table-striped">
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+        </tr>
+        <tr>
+          <th>Total:</th>
+          <th id="pedidoTotal"></th>
+      </table>
+    </div>
+    <div class="col-lg-1">
+      <button id="encomendar" class="btn btn-success">Encomendar</button>
+    </div>
+  </div>
   </div>
   <!-- Fim Containter Pedido/Historico -->
   <!-- Menu Button and sub-menu begin -->
@@ -70,7 +86,7 @@
     <div class="col-md-1 col-md-offset-9">
       <span id="m-sub-menu">
         <button id="menu" class="btn btn-block btn-primary">Menu</button>
-        <button id="history-btn" class="btn btn-block btn-primary">History</button>
+        <button id="history-btn" class="btn btn-block btn-primary">Histórico</button>
       </span>
     </div>
     <div class="col-md-1">
