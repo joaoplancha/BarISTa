@@ -1,38 +1,52 @@
-﻿<head>
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>BarISTa</title>
+    
+    
+    
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <head>
   <title>BarISTa</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
   <!-- Top Item Menu Bar -->
   <div id="menu-items" class="row">
     <div class="col-lg-2">
-      <button id="beer" class="btn btn-lg btn-item btn-block"><img src="img/cerveja.png" height="60pt" />
+      <button id="beer" class="btn btn-lg btn-item btn-block"><img src="http://s23.postimg.org/n0bs8x2qj/cerveja.png" height="60pt" />
         <p>Cervejas</p></button>
     </div>
     <div class="col-lg-2">
-      <button id="wine" class="btn btn-lg btn-item btn-block"><img src="img/vinho.png" height="60pt" />
+      <button id="wine" class="btn btn-lg btn-item btn-block"><img src="http://s24.postimg.org/idp3xutz9/vinho.png" height="60pt" />
         <p>Vinhos</p></button>
     </div>
     <div class="col-lg-2">
-      <button id="cocktail" class="btn btn-lg btn-item btn-block"><img src="img/cocktail.png" height="60pt" />
+      <button id="cocktail" class="btn btn-lg btn-item btn-block"><img src="http://s28.postimg.org/wfxht3ex9/cocktail.png" height="60pt" />
         <p>Cocktails</p></button>
     </div>
     <div class="col-lg-2">
-      <button id="snack" class="btn btn-lg btn-item btn-block"><img src="img/onion_rings.png" height="60pt" />
+      <button id="snack" class="btn btn-lg btn-item btn-block"><img src="http://s15.postimg.org/pw6xjyc8b/onion_rings.png" height="60pt" />
         <p>Snacks</p></button>
     </div>
     <div class="col-lg-2">
-      <button id="soda" class="btn btn-lg btn-item btn-block"><img src="img/cola.png" height="60pt" />
+      <button id="soda" class="btn btn-lg btn-item btn-block"><img src="http://s21.postimg.org/bp23dgg9z/cola.png" height="60pt" />
         <p>Refrigerantes</p></button>
     </div>
     <div class="col-lg-2">
-      <button id="coffee" class="btn btn-lg btn-item btn-block"><img src="img/cafe.png" height="60pt" />
+      <button id="coffee" class="btn btn-lg btn-item btn-block"><img src="http://s22.postimg.org/glngom3z5/cafe.png" height="60pt" />
         <p>Café</p></button>
     </div>
   </div>
@@ -45,6 +59,19 @@
   <div id="pedido-feito">
     <h1 style="color:white" id="last-header" class="text-center">Pedido enviado. Por favor aguarde.</h1><button id="ultimo-cancelar" class="center-block btn btn-primary">Cancelar Pedido</button>
   </div>
+
+  <div id="preparacao" class="preparacao"></div>
+
+  <div id="pedido-preparacao">
+    <h1 style="color:white" id="last-header" class="text-center">Em preparacao... só mais uns minutos</h1>
+  </div>
+  
+  <div id="acaminho" class="acaminho"></div>
+
+  <div id="pedido-acaminho">
+    <h1 style="color:white" id="last-header" class="text-center">A caminho da mesa</h1>
+  </div></div>
+
 
   <div class="container">
     <!-- ex-tabela historico
@@ -85,6 +112,8 @@
         <tr>
           <th>Total:</th>
           <th id="pedidoTotal"></th>
+          <th></th>
+        </th>
       </table>
     </div>
     <div class="col-xs-1">
@@ -107,3 +136,13 @@
   </div>
   <!-- Menu button and sub-menu end -->
 </body>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
