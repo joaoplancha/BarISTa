@@ -10,6 +10,7 @@ function hideElements() {
   $("#pedido-feito").hide();
   $("#pedido-preparacao").hide();
   $("#pedido-acaminho").hide();
+  $("#pedido-cancelado").hide();
   $("#base").hide();
 }
 
@@ -177,22 +178,23 @@ $(document).ready(function() {
   $("#encomendar").click(function() {
     var confirmation = confirm("Tem a certeza?");
     if (confirmation) {
+      cancel = 0;
       hideElements();
       $("#pedido-feito").show();
       $("#waiting").show();
       $("#m").hide();
-      if (cancel == 0) {
-        setTimeout(emPreparacao, 5000)
-      }
+      setTimeout(emPreparacao, 5000)
     }
   });
 
   function emPreparacao() {
-    //$("#waiting").hide();
-    $("#pedido-feito").hide();
-    //$("#preparacao").show();
-    $("#pedido-preparacao").show();
+    if (cancel == 0) {
+      //$("#waiting").hide();
+      $("#pedido-feito").hide();
+      //$("#preparacao").show();
+      $("#pedido-preparacao").show();
       setTimeout(aCaminho, 5000)
+    }
   }
 
   function aCaminho() {
@@ -213,7 +215,10 @@ $(document).ready(function() {
     var confirmation = confirm("Tem a certeza?");
     if (confirmation) {
       cancel = 1;
-      resetState();
+      $("#pedido-cancelado").show()
+      $("#waiting").hide();
+      $("#pedido-feito").hide();
+      setTimeout(resetState,5000)
     }
   });
 
