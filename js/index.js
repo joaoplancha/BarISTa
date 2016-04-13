@@ -14,6 +14,7 @@ function hideElements() {
 }
 
 var total = 0;
+var cancel = 0;
 
 function updatePedidoTotal(price) {
   total += price;
@@ -32,14 +33,23 @@ function resetTotal() {
 function addItemToPedido(name, priceStr) {
   var price = parseInt(priceStr[0], 10);
   var table = document.getElementById("tabela-pedido");
+  
+  var test = " "+name;
+ 
+  if($('table tr').filter(":contains('"+test+"')").text()){
+    console.log("repetido");
+  }
+  
   var row = table.insertRow(table.rows.length - 1);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  cell1.innerHTML = name;
+  var cell3 = row.insertCell(2);  
+  cell1.innerHTML = " "+name;
   cell2.innerHTML = price + "€";
   cell3.innerHTML = "<button class='btn-danger' onclick='deleteThisRow(this)'>X</button>"
   updatePedidoTotal(price);
+
+
 }
 
 function deleteThisRow(e) {
@@ -47,7 +57,7 @@ function deleteThisRow(e) {
   var priceStr = $(row).find('td:eq(1)').text();
   var price = parseInt(priceStr[0],10);
   row.parentNode.removeChild(row);
-  var price = 2;
+  //var price = 2;
   updatePedidoTotal(-price);
 }
 
@@ -171,7 +181,9 @@ $(document).ready(function() {
       $("#pedido-feito").show();
       $("#waiting").show();
       $("#m").hide();
-      setTimeout(emPreparacao, 5000)
+      if (cancel == 0) {
+        setTimeout(emPreparacao, 5000)
+      }
     }
   });
 
@@ -180,7 +192,7 @@ $(document).ready(function() {
     $("#pedido-feito").hide();
     //$("#preparacao").show();
     $("#pedido-preparacao").show();
-    setTimeout(aCaminho, 5000)
+      setTimeout(aCaminho, 5000)
   }
 
   function aCaminho() {
@@ -200,7 +212,8 @@ $(document).ready(function() {
   $("#ultimo-cancelar").click(function() {
     var confirmation = confirm("Tem a certeza?");
     if (confirmation) {
-      hideElements();
+      cancel = 1;
+      resetState();
     }
   });
 
@@ -265,8 +278,12 @@ $(document).ready(function() {
     resetTotal();
   });
 
+
+
   $('#ementa tbody').on('click', 'tr', function() {
     $(this).toggleClass('selected');
     addItemToPedido($(this).find('td:eq(0)').text(), $(this).find('td:eq(1)').text());
   });
 });
+
+
