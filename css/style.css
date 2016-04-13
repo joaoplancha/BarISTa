@@ -51,6 +51,19 @@ h4 {
   font-size: 40px;
 }
 
+#addto {
+
+}
+#addto2 {
+
+}
+#addto3 {
+
+}
+#addto4 {
+
+}
+
 #history {
   background-color: #be9b7b;
   padding: 20px;
@@ -63,11 +76,50 @@ span {
   top: 20px;
 }
 
+#extras-refrigerantes {
+  background-color: #be9b7b;
+  position: absolute;
+  left: 0px;
+  width: 160px;
+  top: 220px;
+  
+}
+
+#extras-prego {
+  background-color: #be9b7b;
+  position: absolute;
+  left: 0px;
+  width: 160px;
+  top: 220px;
+  
+}
+
+#extras-cafe {
+  background-color: #be9b7b;
+  position: absolute;
+  left: 0px;
+  width: 160px;
+  top: 220px;
+  
+}
+
+#extras-generic {
+  background-color: #be9b7b;
+  position: absolute;
+  left: 0px;
+  width: 160px;
+  top: 220px;
+  
+}
+
+
 #pedido {
   background-color: #be9b7b;
   padding: 20px;
   margin: 20px;
 }
+
+
 
 body {
   background-color: #3c2f2f;

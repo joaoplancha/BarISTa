@@ -3,6 +3,10 @@ function hideElements() {
   $("#m-sub-menu").hide();
   $("#history").hide();
   $("#pedido").hide();
+  $("#extras-refrigerantes").hide();
+  $("#extras-prego").hide();
+  $("#extras-cafe").hide();
+  $("#extras-generic").hide();
   $("#encomendar").hide();
   $("#waiting").hide();
   $("#preparacao").hide();
@@ -16,6 +20,10 @@ function hideElements() {
 
 var total = 0;
 var cancel = 0;
+var table = null;
+var price = null;
+var name2 = null;
+var price2 = null;
 
 function updatePedidoTotal(price) {
   total += price;
@@ -32,26 +40,53 @@ function resetTotal() {
 }
 
 function addItemToPedido(name, priceStr) {
-  var price = parseInt(priceStr[0], 10);
-  var table = document.getElementById("tabela-pedido");
+  name2 = name;
+  price2 = priceStr;
+  price = parseInt(priceStr[0], 10);
+  table = document.getElementById("tabela-pedido");
   
+  //is the item already in the table?
   var test = " "+name;
- 
   if($('table tr').filter(":contains('"+test+"')").text()){
     console.log("repetido");
   }
-  
+
+  addExtras(name);
+
+}
+
+function addExtras(name) {
+  if(name == "Coke")
+    $("#extras-refrigerantes").show();
+  else if(name == "Prego")
+    $("#extras-prego").show();
+  else if(name == "Café Expresso")
+    $("#extras-cafe").show();
+  else
+    $("#extras-generic").show();
+
+}
+
+function hideExtras() {
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();
+}
+
+function continueToAdd() {
+
   var row = table.insertRow(table.rows.length - 1);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
   var cell3 = row.insertCell(2);  
-  cell1.innerHTML = " "+name;
+  cell1.innerHTML = " "+name2;
   cell2.innerHTML = price + "€";
-  cell3.innerHTML = "<button class='btn-danger' onclick='deleteThisRow(this)'>X</button>"
+  cell3.innerHTML = "<button class='btn-danger' onclick='deleteThisRow(this)'>X</button>";
   updatePedidoTotal(price);
-
-
+  hideExtras();
 }
+
 
 function deleteThisRow(e) {
   var row = e.parentNode.parentNode;
@@ -140,7 +175,7 @@ var cocktailArray = [
 ];
 
 var snacksArray = [
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
+  ["Prego", "7€", "Snack bastante top!", "100 kcal"],
   ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
   ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
   ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
@@ -173,8 +208,20 @@ $(document).ready(function() {
     $("#menu-items").toggle();
     $("#pedido").toggle();
     $("#encomendar").toggle();
+    hideExtras();
   });
-
+  $("#addto").click(function() {
+    continueToAdd();
+  });
+  $("#addto2").click(function() {
+    continueToAdd();
+  });
+  $("#addto3").click(function() {
+    continueToAdd();
+  });
+  $("#addto4").click(function() {
+    continueToAdd();
+  });
   $("#encomendar").click(function() {
     var confirmation = confirm("Tem a certeza?");
     if (confirmation) {
@@ -183,6 +230,7 @@ $(document).ready(function() {
       $("#pedido-feito").show();
       $("#waiting").show();
       $("#m").hide();
+      hideExtras();
       setTimeout(emPreparacao, 5000)
     }
   });
@@ -242,6 +290,7 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
   $("#cocktail").click(function() {
     var ementa = $('#ementa').DataTable({
@@ -250,6 +299,7 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
 
   $("#snack").click(function() {
@@ -259,6 +309,7 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
 
   $("#soda").click(function() {
@@ -268,6 +319,7 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
   $("#coffee").click(function() {
     var ementa = $('#ementa').DataTable({
@@ -276,11 +328,13 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
 
   $("#cancel-btn").click(function() {
     $("#tabela-pedido").find("td").remove();
     resetTotal();
+    hideExtras();
   });
 
 
