@@ -173,11 +173,11 @@ var beerArray = [
 var wineArray = [
   ["Vinho Médio", "6€", "Vinho do bom.", "alc. 16% vol"],
   ["Vinho Bom", "8€", "Vinho do bom.", "alc. 16% vol"],
-  ["Vinho Excelente", "10€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Excelente", "9€", "Vinho do bom.", "alc. 16% vol"],
   ["Vinho Muito Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
-    ["Vinho Médio", "6€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Médio", "6€", "Vinho do bom.", "alc. 16% vol"],
   ["Vinho Bom", "8€", "Vinho do bom.", "alc. 16% vol"],
-  ["Vinho Excelente", "10€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Excelente", "9€", "Vinho do bom.", "alc. 16% vol"],
   ["Vinho Muito Bom", "9€", "Vinho do bom.", "alc. 16% vol"]
 ];
 
@@ -388,7 +388,14 @@ $(document).ready(function() {
 
 
   $('#ementa tbody').on('click', 'tr', function() {
-    $(this).toggleClass('selected');
+         var table = $('#ementa').DataTable();
+    if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
     addItemToPedido($(this).find('td:eq(0)').text(), $(this).find('td:eq(1)').text());
   });
 });

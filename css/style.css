@@ -53,17 +53,22 @@ h4 {
 }
 
 #addto {
-
+  width:50px;
 }
+
+#addto1 {
+  width:50px;
+}
+
 #addto2 {
-
+  width:50px;
 }
+
 #addto3 {
-
+  width:50px;
 }
-#addto4 {
 
-}
+
 
 #history {
   background-color: #be9b7b;
@@ -74,22 +79,25 @@ h4 {
 span {
   position: relative;
   left: 40%;
-  top: 20px;
+  top: 35px;
+}
+
+#ementa_length  {
+  visibility: hidden;
 }
 
 #extras-refrigerantes {
   background-color: #be9b7b;
   position: absolute;
-  left: 0px;
+  left: 10px;
   width: 120px;
   top: 220px;
-  
 }
 
 #extras-prego {
   background-color: #be9b7b;
   position: absolute;
-  left: 0px;
+  left: 10px;
   width: 120px;
   top: 220px;
   
@@ -98,7 +106,7 @@ span {
 #extras-cafe {
   background-color: #be9b7b;
   position: absolute;
-  left: 0px;
+  left: 10px;
   width: 120px;
   top: 220px;
   
@@ -107,7 +115,7 @@ span {
 #extras-generic {
   background-color: #be9b7b;
   position: absolute;
-  left: 0px;
+  left: 10px;
   width: 120px;
   top: 220px;
   
@@ -198,3 +206,8 @@ body {
   /*This is the static area of the element*/
   box-shadow: 17em 1em #000000, 18em 1em #000000, 19em 1em #000000, 16em 2em #000000, 20em 2em #000000, 15em 3em #000000, 21em 3em #000000, 15em 4em #000000, 18em 4em #e61c1c, 21em 4em #000000, 15em 5em #000000, 21em 5em #000000, 16em 6em #000000, 20em 6em #000000, 17em 7em #000000, 18em 7em #000000, 19em 7em #000000, 1em 8em #633f16, 3em 8em #0d0d0d, 4em 8em #0d0d0d, 5em 8em #0d0d0d, 23em 8em #633f16, 1em 9em #633f16, 3em 9em #0d0d0d, 4em 9em #d9b58d, 5em 9em #d9b58d, 23em 9em #633f16, 1em 10em #633f16, 3em 10em #d9b58d, 4em 10em #d9b58d, 5em 10em #d9b58d, 23em 10em #633f16, 1em 11em #633f16, 3em 11em #1c4012, 23em 11em #633f16, 1em 12em #633f16, 3em 12em #1c4012, 8em 12em #633f16, 9em 12em #633f16, 10em 12em #633f16, 11em 12em #633f16, 12em 12em #633f16, 13em 12em #633f16, 14em 12em #633f16, 15em 12em #633f16, 16em 12em #633f16, 17em 12em #633f16, 18em 12em #633f16, 23em 12em #633f16, 1em 13em #633f16, 3em 13em #1c4012, 4em 13em #1c4012, 5em 13em #1c4012, 6em 13em #d9b58d, 13em 13em #633f16, 23em 13em #633f16, 1em 14em #633f16, 3em 14em #392e9e, 4em 14em #392e9e, 5em 14em #392e9e, 6em 14em #392e9e, 13em 14em #633f16, 23em 14em #633f16, 1em 15em #633f16, 2em 15em #633f16, 3em 15em #633f16, 4em 15em #633f16, 6em 15em #392e9e, 13em 15em #633f16, 20em 15em #633f16, 21em 15em #633f16, 22em 15em #633f16, 23em 15em #633f16, 1em 16em #633f16, 4em 16em #633f16, 6em 16em #392e9e, 13em 16em #633f16, 20em 16em #633f16, 23em 16em #633f16, 1em 17em #633f16, 4em 17em #633f16, 6em 17em #17123f, 12em 17em #633f16, 13em 17em #633f16, 14em 17em #633f16, 20em 17em #633f16, 23em 17em #633f16;
 }
+
+
+h3 {
+    text-align: center;
+} 
