@@ -5,6 +5,7 @@
 #base {
   background-color:#be9b7b;
   margin-top:2%;
+  margin-left: 50px;
 }
 #ementa {
   background-color:#be9b7b;
@@ -80,7 +81,7 @@ span {
   background-color: #be9b7b;
   position: absolute;
   left: 0px;
-  width: 160px;
+  width: 120px;
   top: 220px;
   
 }
@@ -89,7 +90,7 @@ span {
   background-color: #be9b7b;
   position: absolute;
   left: 0px;
-  width: 160px;
+  width: 120px;
   top: 220px;
   
 }
@@ -98,7 +99,7 @@ span {
   background-color: #be9b7b;
   position: absolute;
   left: 0px;
-  width: 160px;
+  width: 120px;
   top: 220px;
   
 }
@@ -107,7 +108,7 @@ span {
   background-color: #be9b7b;
   position: absolute;
   left: 0px;
-  width: 160px;
+  width: 120px;
   top: 220px;
   
 }

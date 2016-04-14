@@ -56,15 +56,34 @@ function addItemToPedido(name, priceStr) {
 }
 
 function addExtras(name) {
-  if(name == "Coke")
+  if(name == "Coke") { 
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();
     $("#extras-refrigerantes").show();
-  else if(name == "Prego")
+  }
+  else if(name == "Prego") {
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();   
     $("#extras-prego").show();
-  else if(name == "Café Expresso")
+  }
+  else if(name == "Café Expresso") {
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();
     $("#extras-cafe").show();
-  else
+  }
+  else {
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();
     $("#extras-generic").show();
-
+  }
 }
 
 function hideExtras() {
@@ -152,45 +171,60 @@ var beerArray = [
 ];
 
 var wineArray = [
-  ["Vinho Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
-  ["Vinho Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
-  ["Vinho Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
-  ["Vinho Bom", "9€", "Vinho do bom.", "alc. 16% vol"]
+  ["Vinho Médio", "6€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Bom", "8€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Excelente", "10€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Muito Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
+    ["Vinho Médio", "6€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Bom", "8€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Excelente", "10€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Muito Bom", "9€", "Vinho do bom.", "alc. 16% vol"]
 ];
 
 var sodaArray = [
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"],
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"],
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"],
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"],
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"]
+  ["Fanta", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Água com Gás", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Agua", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Sprite", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Coke", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Fanta", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Água com Gás", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Agua", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Sprite", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Coke", "2€", "Refrigerante refrescante", "100 kcal"]
 ];
 
 var cocktailArray = [
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"],
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"],
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"],
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"],
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"]
+  ["Margarita", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Daiquiri", "7€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Caipirinha", "4€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Mojito", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Martini", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Margarita", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Daiquiri", "7€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Caipirinha", "4€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Mojito", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Martini", "5€", "Um excelente cocktail ", "alc. 8% vol"]
 ];
 
 var snacksArray = [
+  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
+  ["Bifana", "6€", "Snack bastante top!", "100 kcal"],
   ["Prego", "7€", "Snack bastante top!", "100 kcal"],
   ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
+  ["Bifana", "6€", "Snack bastante top!", "100 kcal"],
+  ["Prego", "7€", "Snack bastante top!", "100 kcal"],
   ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"]
+  ["Bifana", "6€", "Snack bastante top!", "100 kcal"],
+  ["Prego", "7€", "Snack bastante top!", "100 kcal"]
 ];
 
 var coffeeArray = [
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
+  ["Mocha", "1€", "Expresso clássico", "25 kcal"],
+  ["Cappuccino", "3€", "Expresso clássico", "25 kcal"],
+  ["Abatanado", "2€", "Expresso clássico", "25 kcal"],
+  ["Carioca", "1€", "Expresso clássico", "25 kcal"],
+  ["Americano", "1€", "Expresso clássico", "25 kcal"],
   ["Café Expresso", "1€", "Expresso clássico", "25 kcal"]
 ];
 $(document).ready(function() {
@@ -222,6 +256,19 @@ $(document).ready(function() {
   $("#addto4").click(function() {
     continueToAdd();
   });
+  $("#cancel").click(function() {
+    hideExtras();
+  });
+  $("#cancel2").click(function() {
+    hideExtras();
+  });
+  $("#cancel3").click(function() {
+    hideExtras();
+  });
+  $("#cancel4").click(function() {
+    hideExtras();
+  });
+
   $("#encomendar").click(function() {
     var confirmation = confirm("Tem a certeza?");
     if (confirmation) {
