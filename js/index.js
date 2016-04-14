@@ -3,6 +3,10 @@ function hideElements() {
   $("#m-sub-menu").hide();
   $("#history").hide();
   $("#pedido").hide();
+  $("#extras-refrigerantes").hide();
+  $("#extras-prego").hide();
+  $("#extras-cafe").hide();
+  $("#extras-generic").hide();
   $("#encomendar").hide();
   $("#waiting").hide();
   $("#preparacao").hide();
@@ -16,6 +20,10 @@ function hideElements() {
 
 var total = 0;
 var cancel = 0;
+var table = null;
+var price = null;
+var name2 = null;
+var price2 = null;
 
 function updatePedidoTotal(price) {
   total += price;
@@ -32,26 +40,72 @@ function resetTotal() {
 }
 
 function addItemToPedido(name, priceStr) {
-  var price = parseInt(priceStr[0], 10);
-  var table = document.getElementById("tabela-pedido");
+  name2 = name;
+  price2 = priceStr;
+  price = parseInt(priceStr[0], 10);
+  table = document.getElementById("tabela-pedido");
   
+  //is the item already in the table?
   var test = " "+name;
- 
   if($('table tr').filter(":contains('"+test+"')").text()){
     console.log("repetido");
   }
-  
+
+  addExtras(name);
+
+}
+
+function addExtras(name) {
+  if(name == "Coke") { 
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();
+    $("#extras-refrigerantes").show();
+  }
+  else if(name == "Prego") {
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();   
+    $("#extras-prego").show();
+  }
+  else if(name == "Café Expresso") {
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();
+    $("#extras-cafe").show();
+  }
+  else {
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();
+    $("#extras-generic").show();
+  }
+}
+
+function hideExtras() {
+    $("#extras-refrigerantes").hide();
+    $("#extras-prego").hide();
+    $("#extras-cafe").hide();
+    $("#extras-generic").hide();
+}
+
+function continueToAdd() {
+
   var row = table.insertRow(table.rows.length - 1);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
   var cell3 = row.insertCell(2);  
-  cell1.innerHTML = " "+name;
+  cell1.innerHTML = " "+name2;
   cell2.innerHTML = price + "€";
-  cell3.innerHTML = "<button class='btn-danger' onclick='deleteThisRow(this)'>X</button>"
+  cell3.innerHTML = "<button class='btn-danger' onclick='deleteThisRow(this)'>X</button>";
   updatePedidoTotal(price);
-
-
+  hideExtras();
 }
+
 
 function deleteThisRow(e) {
   var row = e.parentNode.parentNode;
@@ -117,45 +171,60 @@ var beerArray = [
 ];
 
 var wineArray = [
-  ["Vinho Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
-  ["Vinho Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
-  ["Vinho Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
-  ["Vinho Bom", "9€", "Vinho do bom.", "alc. 16% vol"]
+  ["Vinho Médio", "6€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Bom", "8€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Excelente", "9€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Muito Bom", "9€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Médio", "6€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Bom", "8€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Excelente", "9€", "Vinho do bom.", "alc. 16% vol"],
+  ["Vinho Muito Bom", "9€", "Vinho do bom.", "alc. 16% vol"]
 ];
 
 var sodaArray = [
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"],
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"],
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"],
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"],
-  ["Coke", "2€", "Refrigerante bastante refrescante", "100 kcal"]
+  ["Fanta", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Água com Gás", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Agua", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Sprite", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Coke", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Fanta", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Água com Gás", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Agua", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Sprite", "2€", "Refrigerante refrescante", "100 kcal"],
+  ["Coke", "2€", "Refrigerante refrescante", "100 kcal"]
 ];
 
 var cocktailArray = [
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"],
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"],
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"],
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"],
-  ["Cocktail Lisboa", "4€", "Um excelente cocktail para qualquer ocasião", "alc. 8% vol"]
+  ["Margarita", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Daiquiri", "7€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Caipirinha", "4€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Mojito", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Martini", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Margarita", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Daiquiri", "7€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Caipirinha", "4€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Mojito", "5€", "Um excelente cocktail ", "alc. 8% vol"],
+  ["Martini", "5€", "Um excelente cocktail ", "alc. 8% vol"]
 ];
 
 var snacksArray = [
   ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
+  ["Bifana", "6€", "Snack bastante top!", "100 kcal"],
+  ["Prego", "7€", "Snack bastante top!", "100 kcal"],
   ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
+  ["Bifana", "6€", "Snack bastante top!", "100 kcal"],
+  ["Prego", "7€", "Snack bastante top!", "100 kcal"],
   ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
-  ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"]
+  ["Bifana", "6€", "Snack bastante top!", "100 kcal"],
+  ["Prego", "7€", "Snack bastante top!", "100 kcal"]
 ];
 
 var coffeeArray = [
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
-  ["Café Expresso", "1€", "Expresso clássico", "25 kcal"],
+  ["Mocha", "1€", "Expresso clássico", "25 kcal"],
+  ["Cappuccino", "3€", "Expresso clássico", "25 kcal"],
+  ["Abatanado", "2€", "Expresso clássico", "25 kcal"],
+  ["Carioca", "1€", "Expresso clássico", "25 kcal"],
+  ["Americano", "1€", "Expresso clássico", "25 kcal"],
   ["Café Expresso", "1€", "Expresso clássico", "25 kcal"]
 ];
 $(document).ready(function() {
@@ -173,6 +242,32 @@ $(document).ready(function() {
     $("#menu-items").toggle();
     $("#pedido").toggle();
     $("#encomendar").toggle();
+    $("#m-sub-menu").hide();
+    hideExtras();
+  });
+  $("#addto").click(function() {
+    continueToAdd();
+  });
+  $("#addto2").click(function() {
+    continueToAdd();
+  });
+  $("#addto3").click(function() {
+    continueToAdd();
+  });
+  $("#addto4").click(function() {
+    continueToAdd();
+  });
+  $("#cancel").click(function() {
+    hideExtras();
+  });
+  $("#cancel2").click(function() {
+    hideExtras();
+  });
+  $("#cancel3").click(function() {
+    hideExtras();
+  });
+  $("#cancel4").click(function() {
+    hideExtras();
   });
 
   $("#encomendar").click(function() {
@@ -183,6 +278,7 @@ $(document).ready(function() {
       $("#pedido-feito").show();
       $("#waiting").show();
       $("#m").hide();
+      hideExtras();
       setTimeout(emPreparacao, 5000)
     }
   });
@@ -242,6 +338,7 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
   $("#cocktail").click(function() {
     var ementa = $('#ementa').DataTable({
@@ -250,6 +347,7 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
 
   $("#snack").click(function() {
@@ -259,6 +357,7 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
 
   $("#soda").click(function() {
@@ -268,6 +367,7 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
   $("#coffee").click(function() {
     var ementa = $('#ementa').DataTable({
@@ -276,17 +376,20 @@ $(document).ready(function() {
       "bDestroy": true
     });
     $("#base").show();
+    hideExtras();
   });
 
   $("#cancel-btn").click(function() {
     $("#tabela-pedido").find("td").remove();
     resetTotal();
+    hideExtras();
   });
 
 
 
   $('#ementa tbody').on('click', 'tr', function() {
-     var table = $('#ementa').DataTable();
+    var table = $('#ementa').DataTable();
+    
     if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
         }
