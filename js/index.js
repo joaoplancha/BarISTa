@@ -242,6 +242,7 @@ $(document).ready(function() {
     $("#menu-items").toggle();
     $("#pedido").toggle();
     $("#encomendar").toggle();
+    $("#m-sub-menu").hide();
     hideExtras();
   });
   $("#addto").click(function() {
