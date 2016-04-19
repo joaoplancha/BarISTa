@@ -10,8 +10,11 @@
 #ementa {
   background-color:#be9b7b;
 }
+
 #pedido {
   width: 25%;
+  height: 240px;
+  overflow-y: scroll;
 }
 
 #pedido-feito {
