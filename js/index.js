@@ -43,7 +43,7 @@
   function addItemToPedido(name, priceStr) {
     name2 = name;
     price2 = priceStr;
-    price = parseInt(priceStr[0], 10);
+    price = customParseInt(priceStr);
     table = document.getElementById("tabela-pedido");
 
     //is the item already in the table?
@@ -51,11 +51,20 @@
     if ($('table tr').filter(":contains('" + test + "')").text()) {
       console.log("repetido");
     }
-    pedido.push(name,price2);
+    pedido.push(name);
     addExtras(name);
-
   }
 
+  function customParseInt(priceStr) {
+    numArray = [];
+    for (var i = 0; i < priceStr.length; i++) {
+      if(priceStr[i]!="€") {
+        numArray.push(priceStr[i]);
+      }
+    }
+    finalNum = numArray.join("");
+    return parseInt(finalNum,10);
+  }
   function addExtras(name) {
     if (name == "Coke") {
       $("#extras-refrigerantes").hide();
@@ -271,13 +280,16 @@
     $("#encomendar").click(function() {
       var confirmation = confirm("Tem a certeza?");
       if (confirmation) {
+        var date = new Date();
+       // var date = "" + currentDate.getDay() + "/" + currentDate.getMonth() + "/" + current.getYear();
+       
         cancel = 0;
         hideElements();
         $("#pedido-feito").show();
         $("#waiting").show();
         $("#m").hide();
         hideExtras();
-        historyArray.push(pedido);
+        historyArray.push([pedido,total+"€",date]);
         pedido = [];
         setTimeout(emPreparacao, 5000)
       }
