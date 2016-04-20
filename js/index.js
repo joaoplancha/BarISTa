@@ -155,6 +155,12 @@
     var table = document.getElementById(tableid);
   }
 
+  function ptTranslation(){
+      document.getElementById('ementa_previous').innerHTML = 'Anterior';
+      document.getElementById('ementa_next').innerHTML = 'Seguinte';
+      document.getElementById('ementa_filter').innerHTML = '<label>Pesquisa:<input aria-controls="ementa" placeholder="" class="" type="search"></label>';
+  }
+
   var beerArray = [
     ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
     ["Cerveja Maluco", "2€", "Quem bebe esta cerveja até fica maluco!", "alc. 8.3% vol"],
@@ -353,6 +359,9 @@
       });
       $("#base").show();
       $("#base_h").hide();
+      ptTranslation();
+      document.getElementById('ementa_info').innerHTML = 'a mostrar 10 entradas de 15';
+
     });
 
     $("#wine").click(function() {
@@ -364,6 +373,8 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
+      document.getElementById('ementa_info').innerHTML = 'a mostrar 8 entradas de 8';
     });
 
     $("#cocktail").click(function() {
@@ -375,6 +386,8 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
+      document.getElementById('ementa_info').innerHTML = 'a mostrar 10 entradas de 10';
     });
 
     $("#snack").click(function() {
@@ -386,6 +399,8 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
+      document.getElementById('ementa_info').innerHTML = 'a mostrar 9 entradas de 9';
     });
 
     $("#soda").click(function() {
@@ -397,6 +412,8 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
+      document.getElementById('ementa_info').innerHTML = 'a mostrar 10 entradas de 10';
     });
 
     $("#coffee").click(function() {
@@ -408,6 +425,8 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
+      document.getElementById('ementa_info').innerHTML = 'a mostrar 6 entradas de 6';
     });
 
     $("#cancel-btn").click(function() {
