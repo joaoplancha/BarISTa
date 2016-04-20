@@ -117,7 +117,7 @@
   function deleteThisRow(e) {
     var row = e.parentNode.parentNode;
     var priceStr = $(row).find('td:eq(1)').text();
-    var price = parseInt(priceStr[0], 10);
+    var price = customParseInt(priceStr);
     row.parentNode.removeChild(row);
     //var price = 2;
     updatePedidoTotal(-price);
