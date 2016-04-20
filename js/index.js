@@ -159,6 +159,13 @@
       document.getElementById('ementa_previous').innerHTML = 'Anterior';
       document.getElementById('ementa_next').innerHTML = 'Seguinte';
       document.getElementById('ementa_filter').innerHTML = '<label>Pesquisa:<input aria-controls="ementa" placeholder="" class="" type="search"></label>';
+      
+  }
+
+  function ptTranslationH(){
+      document.getElementById('historico_previous').innerHTML = 'Anterior';
+      document.getElementById('historico_next').innerHTML = 'Seguinte';
+      document.getElementById('historico_filter').innerHTML = '<label>Pesquisa:<input aria-controls="historico" placeholder="" class="" type="search"></label>';
   }
 
   var beerArray = [
@@ -348,6 +355,8 @@
       $("#menu-items").show();
       $("#pedido").show();
       $("#encomendar").show();
+      ptTranslationH();
+
     });
 
     $("#beer").click(function() {
@@ -454,5 +463,6 @@
         $(this).addClass('selected');
       }
       addItemToPedido($(this).find('td:eq(0)').text(), $(this).find('td:eq(1)').text());
+
     });
   });
