@@ -360,7 +360,6 @@
       $("#base").show();
       $("#base_h").hide();
       ptTranslation();
-      document.getElementById('ementa_info').innerHTML = 'a mostrar 10 entradas de 15';
 
     });
 
@@ -374,7 +373,6 @@
       $("#base_h").hide();
       hideExtras();
       ptTranslation();
-      document.getElementById('ementa_info').innerHTML = 'a mostrar 8 entradas de 8';
     });
 
     $("#cocktail").click(function() {
@@ -387,7 +385,6 @@
       $("#base_h").hide();
       hideExtras();
       ptTranslation();
-      document.getElementById('ementa_info').innerHTML = 'a mostrar 10 entradas de 10';
     });
 
     $("#snack").click(function() {
@@ -400,7 +397,6 @@
       $("#base_h").hide();
       hideExtras();
       ptTranslation();
-      document.getElementById('ementa_info').innerHTML = 'a mostrar 9 entradas de 9';
     });
 
     $("#soda").click(function() {
@@ -413,7 +409,6 @@
       $("#base_h").hide();
       hideExtras();
       ptTranslation();
-      document.getElementById('ementa_info').innerHTML = 'a mostrar 10 entradas de 10';
     });
 
     $("#coffee").click(function() {
@@ -426,7 +421,6 @@
       $("#base_h").hide();
       hideExtras();
       ptTranslation();
-      document.getElementById('ementa_info').innerHTML = 'a mostrar 6 entradas de 6';
     });
 
     $("#cancel-btn").click(function() {

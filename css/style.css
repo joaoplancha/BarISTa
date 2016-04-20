@@ -89,6 +89,11 @@ span {
   visibility: hidden;
 }
 
+#ementa_info {
+  visibility: hidden;
+}
+
+
 #extras-refrigerantes {
   background-color: #be9b7b;
   position: absolute;
