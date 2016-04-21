@@ -155,6 +155,19 @@
     var table = document.getElementById(tableid);
   }
 
+  function ptTranslation(){
+      document.getElementById('ementa_previous').innerHTML = 'Anterior';
+      document.getElementById('ementa_next').innerHTML = 'Seguinte';
+      document.getElementById('ementa_filter').innerHTML = '<label>Pesquisa:<input aria-controls="ementa" placeholder="" class="" type="search"></label>';
+      
+  }
+
+  function ptTranslationH(){
+      document.getElementById('historico_previous').innerHTML = 'Anterior';
+      document.getElementById('historico_next').innerHTML = 'Seguinte';
+      document.getElementById('historico_filter').innerHTML = '<label>Pesquisa:<input aria-controls="historico" placeholder="" class="" type="search"></label>';
+  }
+
   var beerArray = [
     ["Cerveja Fixe", "1€", "A cerveja mais fixe.", "alc. 5,1% vol"],
     ["Cerveja Maluco", "2€", "Quem bebe esta cerveja até fica maluco!", "alc. 8.3% vol"],
@@ -342,6 +355,8 @@
       $("#menu-items").show();
       $("#pedido").show();
       $("#encomendar").show();
+      ptTranslationH();
+
     });
 
     $("#beer").click(function() {
@@ -353,6 +368,8 @@
       });
       $("#base").show();
       $("#base_h").hide();
+      ptTranslation();
+
     });
 
     $("#wine").click(function() {
@@ -364,6 +381,7 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
     });
 
     $("#cocktail").click(function() {
@@ -375,6 +393,7 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
     });
 
     $("#snack").click(function() {
@@ -386,6 +405,7 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
     });
 
     $("#soda").click(function() {
@@ -397,6 +417,7 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
     });
 
     $("#coffee").click(function() {
@@ -408,6 +429,7 @@
       $("#base").show();
       $("#base_h").hide();
       hideExtras();
+      ptTranslation();
     });
 
     $("#cancel-btn").click(function() {
@@ -441,5 +463,6 @@
         $(this).addClass('selected');
       }
       addItemToPedido($(this).find('td:eq(0)').text(), $(this).find('td:eq(1)').text());
+
     });
   });
