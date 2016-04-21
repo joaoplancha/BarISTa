@@ -280,6 +280,7 @@
     $("#cancel4").click(function() {
       hideExtras();
     });
+    
 
     $("#encomendar").click(function() {
       var confirmation = confirm("Tem a certeza?");
@@ -327,6 +328,19 @@
 
     function resetPedido() {
       pedido = [];
+    }
+
+    var count1 = 1;
+    function setColor() {
+        var property = document.getElementById("button");
+        if (count1 == 0) {
+            property.style.backgroundColor = "#FFFFFF"
+            count1 = 1;        
+        }
+        else {
+            property.style.backgroundColor = "#7FFF00"
+            count1 = 0;
+        }
     }
 
     $("#ultimo-cancelar").click(function() {
