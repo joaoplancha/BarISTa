@@ -158,14 +158,14 @@
   function ptTranslation(){
       document.getElementById('ementa_previous').innerHTML = 'Anterior';
       document.getElementById('ementa_next').innerHTML = 'Seguinte';
-      document.getElementById('ementa_filter').innerHTML = '<label>Pesquisa:<input aria-controls="ementa" placeholder="" class="" type="search"></label>';
+     // document.getElementById('ementa_filter').innerHTML = '<label>Pesquisa:<input aria-controls="ementa" placeholder="" class="" type="search"></label>';
       
   }
 
   function ptTranslationH(){
       document.getElementById('historico_previous').innerHTML = 'Anterior';
       document.getElementById('historico_next').innerHTML = 'Seguinte';
-      document.getElementById('historico_filter').innerHTML = '<label>Pesquisa:<input aria-controls="historico" placeholder="" class="" type="search"></label>';
+     // document.getElementById('historico_filter').innerHTML = '<label>Pesquisa:<input aria-controls="historico" placeholder="" class="" type="search"></label>';
   }
 
   var beerArray = [
@@ -293,8 +293,9 @@
     $("#encomendar").click(function() {
       var confirmation = confirm("Tem a certeza?");
       if (confirmation) {
-        var date = new Date();
-       // var date = "" + currentDate.getDay() + "/" + currentDate.getMonth() + "/" + current.getYear();
+        var currentDate = new Date();
+        var month = currentDate.getMonth() + 1;
+        var date = "" + currentDate.getDate() + "/" + month + "/" + currentDate.getFullYear();
        
         cancel = 0;
         hideElements();
@@ -329,7 +330,12 @@
       hideElements();
       $("#tabela-pedido").find("td").remove();
       resetTotal();
+      resetPedido();
       $("#m").show();
+    }
+
+    function resetPedido() {
+      pedido = [];
     }
 
     $("#ultimo-cancelar").click(function() {
