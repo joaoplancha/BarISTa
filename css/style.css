@@ -57,22 +57,6 @@ h4 {
   font-size: 40px;
 }
 
-#addto {
-  width: 50px;
-}
-
-#addto1 {
-  width: 50px;
-}
-
-#addto2 {
-  width: 50px;
-}
-
-#addto3 {
-  width: 50px;
-}
-
 #history {
   background-color: #be9b7b;
   padding: 20px;
@@ -86,6 +70,18 @@ span {
 }
 
 #ementa_length {
+  visibility: hidden;
+}
+
+#ementa_info {
+  visibility: hidden;
+}
+
+#historico_length {
+  visibility: hidden;
+}
+
+#historico_info {
   visibility: hidden;
 }
 

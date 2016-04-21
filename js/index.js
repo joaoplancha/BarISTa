@@ -102,7 +102,7 @@
 
   function continueToAdd() {
 
-    var row = table.insertRow(table.rows.length - 1);
+    var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
@@ -231,6 +231,10 @@
     ["Café Expresso", "1€", "Expresso clássico", "25 kcal"]
   ];
 
+  var populateHistoryArray = [
+    ["Martini, Mojito, Mocha", "5€", "23/01/2013"]
+  ];
+
   var historyArray = [];
   var pedido = [];
 
@@ -280,8 +284,9 @@
     $("#encomendar").click(function() {
       var confirmation = confirm("Tem a certeza?");
       if (confirmation) {
-        var date = new Date();
-       // var date = "" + currentDate.getDay() + "/" + currentDate.getMonth() + "/" + current.getYear();
+        var currentDate = new Date();
+        var month = currentDate.getMonth() + 1;
+        var date = "" + currentDate.getDate() + "/" + month + "/" + currentDate.getFullYear();
        
         cancel = 0;
         hideElements();
@@ -316,7 +321,12 @@
       hideElements();
       $("#tabela-pedido").find("td").remove();
       resetTotal();
+      resetPedido();
       $("#m").show();
+    }
+
+    function resetPedido() {
+      pedido = [];
     }
 
     $("#ultimo-cancelar").click(function() {
@@ -335,7 +345,18 @@
         data: historyArray,
         select: true,
         "bDestroy": true,
-        "select": true
+        "select": true,
+        "data":populateHistoryArray,
+        "language": {
+          "search":"Pesquisa",
+          "zeroRecords": "Nenhum resultado encontrado",
+           "paginate": {
+              "first":      "Primeiro",
+              "last":       "Último",
+              "next":       "Próximo",
+              "previous":   "Anterior"
+            }
+        }
       });
       $("#base_h").show();
       $("#base").hide();
@@ -349,17 +370,39 @@
         data: beerArray,
         select: true,
         "bDestroy": true,
-        "select": true
+        "select": true,
+        "language": {
+          "search":"Pesquisa",
+          "zeroRecords": "Nenhum resultado encontrado",
+           "paginate": {
+              "first":      "Primeiro",
+              "last":       "Último",
+              "next":       "Próximo",
+              "previous":   "Anterior"
+            }
+        }
       });
       $("#base").show();
       $("#base_h").hide();
+
+
     });
 
     $("#wine").click(function() {
       var ementa = $('#ementa').DataTable({
         data: wineArray,
         select: true,
-        "bDestroy": true
+        "bDestroy": true,
+        "language": {
+          "search":"Pesquisa",
+          "zeroRecords": "Nenhum resultado encontrado",
+           "paginate": {
+              "first":      "Primeiro",
+              "last":       "Último",
+              "next":       "Próximo",
+              "previous":   "Anterior"
+            }
+        }
       });
       $("#base").show();
       $("#base_h").hide();
@@ -370,7 +413,17 @@
       var ementa = $('#ementa').DataTable({
         data: cocktailArray,
         select: true,
-        "bDestroy": true
+        "bDestroy": true,
+        "language": {
+          "search":"Pesquisa",
+          "zeroRecords": "Nenhum resultado encontrado",
+           "paginate": {
+              "first":      "Primeiro",
+              "last":       "Último",
+              "next":       "Próximo",
+              "previous":   "Anterior"
+            }
+        }
       });
       $("#base").show();
       $("#base_h").hide();
@@ -381,7 +434,17 @@
       var ementa = $('#ementa').DataTable({
         data: snacksArray,
         select: true,
-        "bDestroy": true
+        "bDestroy": true,
+        "language": {
+          "search":"Pesquisa",
+          "zeroRecords": "Nenhum resultado encontrado",
+           "paginate": {
+              "first":      "Primeiro",
+              "last":       "Último",
+              "next":       "Próximo",
+              "previous":   "Anterior"
+            }
+        }
       });
       $("#base").show();
       $("#base_h").hide();
@@ -392,7 +455,17 @@
       var ementa = $('#ementa').DataTable({
         data: sodaArray,
         select: true,
-        "bDestroy": true
+        "bDestroy": true,
+        "language": {
+          "search":"Pesquisa",
+          "zeroRecords": "Nenhum resultado encontrado",
+           "paginate": {
+              "first":      "Primeiro",
+              "last":       "Último",
+              "next":       "Próximo",
+              "previous":   "Anterior"
+            }
+        }
       });
       $("#base").show();
       $("#base_h").hide();
@@ -403,7 +476,17 @@
       var ementa = $('#ementa').DataTable({
         data: coffeeArray,
         select: true,
-        "bDestroy": true
+        "bDestroy": true,
+        "language": {
+          "search":"Pesquisa",
+          "zeroRecords": "Nenhum resultado encontrado",
+           "paginate": {
+              "first":      "Primeiro",
+              "last":       "Último",
+              "next":       "Próximo",
+              "previous":   "Anterior"
+            }
+        }
       });
       $("#base").show();
       $("#base_h").hide();
@@ -441,5 +524,6 @@
         $(this).addClass('selected');
       }
       addItemToPedido($(this).find('td:eq(0)').text(), $(this).find('td:eq(1)').text());
+
     });
   });
