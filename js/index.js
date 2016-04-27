@@ -219,7 +219,8 @@
     ["Prego", "7€", "Snack bastante top!", "100 kcal"],
     ["Onion Rings", "2€", "Snack bastante top!", "100 kcal"],
     ["Bifana", "6€", "Snack bastante top!", "100 kcal"],
-    ["Prego", "7€", "Snack bastante top!", "100 kcal"]
+    ["Prego", "7€", "Snack bastante top!", "100 kcal"],
+    ["Batatas Fritas", "2€", "Batatas finas fritas", "35 kcal"]
   ];
 
   var coffeeArray = [
@@ -232,7 +233,19 @@
   ];
 
   var historyArray = [
-    ["Martini, Mojito, Mocha", "5€", "23/01/2013"]
+    ["Martini, Mojito, Mocha", "5€", "23/01/2013"],
+    ["Cerveja, Cappuccino, Americano", "5€", "12/02/2014"],
+    ["Bifana, Prego, Cappuccino, Coke", "18€", "7/07/2015"],
+    ["Onion Rings, Fanta, Água", "5€", "23/01/2013"],
+    ["Café Expresso, Prego, Vinho Médio", "20€", "6/11/2012"],
+    ["Bifana, Cerveja Fixe, Abatanado", "15€", "3/04/2014"],
+    ["Onion Rings, Cerveja Fixe", "4€", "4/05/2015"],
+    ["Fanta, Batatas Fritas", "4€", "15/12/2015"],
+    ["Café Expresso", "1€", "5/08/2013"],
+    ["Martini, Mojito", "10€", "1/01/2016"],
+    ["Bifana, Fanta", "8€", "7/09/2013"],
+    ["Caipirinha, Onion Rings", "6€", "22/07/2015"],
+    ["Água com Gás", "1€", "27/07/2015"]
   ];
   var pedido = [];
 
