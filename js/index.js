@@ -58,13 +58,14 @@
   function customParseInt(priceStr) {
     numArray = [];
     for (var i = 0; i < priceStr.length; i++) {
-      if(priceStr[i]!="€") {
+      if (priceStr[i] != "€") {
         numArray.push(priceStr[i]);
       }
     }
     finalNum = numArray.join("");
-    return parseInt(finalNum,10);
+    return parseInt(finalNum, 10);
   }
+
   function addExtras(name) {
     if (name == "Coke") {
       $("#extras-refrigerantes").hide();
@@ -298,17 +299,21 @@
         var currentDate = new Date();
         var month = currentDate.getMonth() + 1;
         var date = "" + currentDate.getDate() + "/" + month + "/" + currentDate.getFullYear();
-       
+
         cancel = 0;
         hideElements();
         $("#pedido-feito").show();
         $("#waiting").show();
         $("#m").hide();
         hideExtras();
-        historyArray.push([pedido,total+"€",date]);
+        historyArray.push([pedido, total + "€", date]);
         pedido = [];
         setTimeout(emPreparacao, 3000)
       }
+    });
+    
+    $( "#datepicker" ).datepicker({
+       dateFormat: "dd/mm/yy"
     });
 
     function emPreparacao() {
@@ -359,14 +364,14 @@
         "bDestroy": true,
         "select": true,
         "language": {
-          "search":"Pesquisa",
+          "search": "Pesquisa",
           "zeroRecords": "Nenhum resultado encontrado",
-           "paginate": {
-              "first":      "Primeiro",
-              "last":       "Último",
-              "next":       "Próximo",
-              "previous":   "Anterior"
-            }
+          "paginate": {
+            "first": "Primeiro",
+            "last": "Último",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
         }
       });
       $("#base_h").show();
@@ -383,19 +388,18 @@
         "bDestroy": true,
         "select": true,
         "language": {
-          "search":"Pesquisa",
+          "search": "Pesquisa",
           "zeroRecords": "Nenhum resultado encontrado",
-           "paginate": {
-              "first":      "Primeiro",
-              "last":       "Último",
-              "next":       "Próximo",
-              "previous":   "Anterior"
-            }
+          "paginate": {
+            "first": "Primeiro",
+            "last": "Último",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
         }
       });
       $("#base").show();
       $("#base_h").hide();
-
 
     });
 
@@ -405,14 +409,14 @@
         select: true,
         "bDestroy": true,
         "language": {
-          "search":"Pesquisa",
+          "search": "Pesquisa",
           "zeroRecords": "Nenhum resultado encontrado",
-           "paginate": {
-              "first":      "Primeiro",
-              "last":       "Último",
-              "next":       "Próximo",
-              "previous":   "Anterior"
-            }
+          "paginate": {
+            "first": "Primeiro",
+            "last": "Último",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
         }
       });
       $("#base").show();
@@ -426,14 +430,14 @@
         select: true,
         "bDestroy": true,
         "language": {
-          "search":"Pesquisa",
+          "search": "Pesquisa",
           "zeroRecords": "Nenhum resultado encontrado",
-           "paginate": {
-              "first":      "Primeiro",
-              "last":       "Último",
-              "next":       "Próximo",
-              "previous":   "Anterior"
-            }
+          "paginate": {
+            "first": "Primeiro",
+            "last": "Último",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
         }
       });
       $("#base").show();
@@ -447,14 +451,14 @@
         select: true,
         "bDestroy": true,
         "language": {
-          "search":"Pesquisa",
+          "search": "Pesquisa",
           "zeroRecords": "Nenhum resultado encontrado",
-           "paginate": {
-              "first":      "Primeiro",
-              "last":       "Último",
-              "next":       "Próximo",
-              "previous":   "Anterior"
-            }
+          "paginate": {
+            "first": "Primeiro",
+            "last": "Último",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
         }
       });
       $("#base").show();
@@ -468,14 +472,14 @@
         select: true,
         "bDestroy": true,
         "language": {
-          "search":"Pesquisa",
+          "search": "Pesquisa",
           "zeroRecords": "Nenhum resultado encontrado",
-           "paginate": {
-              "first":      "Primeiro",
-              "last":       "Último",
-              "next":       "Próximo",
-              "previous":   "Anterior"
-            }
+          "paginate": {
+            "first": "Primeiro",
+            "last": "Último",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
         }
       });
       $("#base").show();
@@ -489,14 +493,14 @@
         select: true,
         "bDestroy": true,
         "language": {
-          "search":"Pesquisa",
+          "search": "Pesquisa",
           "zeroRecords": "Nenhum resultado encontrado",
-           "paginate": {
-              "first":      "Primeiro",
-              "last":       "Último",
-              "next":       "Próximo",
-              "previous":   "Anterior"
-            }
+          "paginate": {
+            "first": "Primeiro",
+            "last": "Último",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
         }
       });
       $("#base").show();
@@ -525,7 +529,7 @@
       addItemToPedido($(this).find('td:eq(0)').text(), $(this).find('td:eq(1)').text());
     });
 
-      $('#historico tbody').on('click', 'tr', function() {
+    $('#historico tbody').on('click', 'tr', function() {
       var table = $('#historico').DataTable();
 
       if ($(this).hasClass('selected')) {
