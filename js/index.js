@@ -102,7 +102,7 @@
 
   function continueToAdd() {
 
-    var row = table.insertRow(1);
+    var row = table.insertRow(2);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
@@ -231,11 +231,9 @@
     ["Café Expresso", "1€", "Expresso clássico", "25 kcal"]
   ];
 
-  var populateHistoryArray = [
+  var historyArray = [
     ["Martini, Mojito, Mocha", "5€", "23/01/2013"]
   ];
-
-  var historyArray = [];
   var pedido = [];
 
   $(document).ready(function() {
@@ -346,7 +344,6 @@
         select: true,
         "bDestroy": true,
         "select": true,
-        "data":populateHistoryArray,
         "language": {
           "search":"Pesquisa",
           "zeroRecords": "Nenhum resultado encontrado",
