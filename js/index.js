@@ -307,7 +307,7 @@
         hideExtras();
         historyArray.push([pedido,total+"€",date]);
         pedido = [];
-        setTimeout(emPreparacao, 5000)
+        setTimeout(emPreparacao, 3000)
       }
     });
 
@@ -317,7 +317,7 @@
         $("#pedido-feito").hide();
         //$("#preparacao").show();
         $("#pedido-preparacao").show();
-        setTimeout(aCaminho, 5000)
+        setTimeout(aCaminho, 1000)
       }
     }
 
@@ -325,7 +325,7 @@
       $("#preparacao").hide();
       $("#pedido-preparacao").hide();
       $("#pedido-acaminho").show();
-      setTimeout(resetState, 5000)
+      setTimeout(resetState, 1000)
     }
 
     function resetState() {
@@ -344,10 +344,11 @@
       var confirmation = confirm("Tem a certeza?");
       if (confirmation) {
         cancel = 1;
+        historyArray.pop();
         $("#pedido-cancelado").show()
         $("#waiting").hide();
         $("#pedido-feito").hide();
-        setTimeout(resetState, 5000)
+        setTimeout(resetState, 1000)
       }
     });
 
