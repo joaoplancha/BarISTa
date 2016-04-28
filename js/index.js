@@ -51,7 +51,7 @@
     if ($('table tr').filter(":contains('" + test + "')").text()) {
       console.log("repetido");
     }
-    pedido.push(name);
+   // pedido.push(name);
     addExtras(name);
   }
 
@@ -111,7 +111,7 @@
     cell2.innerHTML = price + "€";
     cell3.innerHTML = "<button class='btn-danger' onclick='deleteThisRow(this)'>X</button>";
     updatePedidoTotal(price);
-    pedido.append([cell1.innerHTML, cell2.innerHTML]);
+    pedido.push([cell1.innerHTML]);
     hideExtras();
   }
 
@@ -306,6 +306,7 @@
         $("#waiting").show();
         $("#m").hide();
         hideExtras();
+        console.log([pedido, total + "€", date])
         historyArray.push([pedido, total + "€", date]);
         pedido = [];
         setTimeout(emPreparacao, 3000)
