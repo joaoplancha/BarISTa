@@ -296,7 +296,7 @@
     });
 
     $("#encomendar").click(function() {
-      var confirmation = confirm("Tem a certeza?");
+      var confirmation = confirm("Tem a certeza de que deseja encomendar este pedido?");
       if (confirmation) {
         var currentDate = new Date();
         var month = currentDate.getMonth() + 1;
@@ -364,7 +364,7 @@
     }
 
     $("#ultimo-cancelar").click(function() {
-      var confirmation = confirm("Tem a certeza?");
+      var confirmation = confirm("Tem a certeza de que deseja cancelar a operação?");
       if (confirmation) {
         cancel = 1;
         historyArray.pop();
@@ -527,7 +527,7 @@
     });
 
     $("#cancel-btn").click(function() {
-      var conf = confirm("Tem a certeza?");
+      var conf = confirm("Tem a certeza de que deseja cancelar este pedido?");
       if (conf) {
         $("#tabela-pedido").find("td").remove();
         resetTotal();
