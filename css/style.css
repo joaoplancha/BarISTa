@@ -9,6 +9,10 @@
   margin-left: 50px;
 }
 
+.total {
+  font-size:1.5em;
+}
+
 #ementa {
   background-color: #be9b7b;
 }
