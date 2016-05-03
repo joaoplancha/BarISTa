@@ -1,4 +1,5 @@
   function hideElements() {
+    $("#cancel-btn").hide();
     $("#menu-items").hide();
     $("#m-sub-menu").hide();
     $("#history").hide();
@@ -112,6 +113,7 @@
     cell3.innerHTML = "<button class='btn-danger' onclick='deleteThisRow(this)'>X</button>";
     updatePedidoTotal(price);
     pedido.push([cell1.innerHTML]);
+    $("#cancel-btn").show();
     hideExtras();
   }
 
@@ -530,6 +532,8 @@
         $("#tabela-pedido").find("td").remove();
         resetTotal();
         hideExtras();
+        resetPedido();
+        
       }
     });
 
