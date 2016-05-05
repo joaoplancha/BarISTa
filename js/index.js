@@ -264,9 +264,9 @@
     $("#menu").click(function() {
       $("#pedido-feito").hide();
       $("#waiting").hide();
-      $("#menu-items").toggle();
-      $("#pedido").toggle();
-      $("#encomendar").toggle();
+      $("#menu-items").show();
+      $("#pedido").show();
+      $("#encomendar").show();
       $("#m-sub-menu").hide();
       hideExtras();
     });
