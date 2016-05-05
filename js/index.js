@@ -314,7 +314,7 @@
         setTimeout(emPreparacao, 3000)
       }
     });
-    
+    /*
     $( "#from" ).datepicker({
       dateFormat:"dd/mm/yy",
       defaultDate: "+1w",
@@ -333,7 +333,7 @@
         $( "#from" ).datepicker( "option", "maxDate", selectedDate );
       }
     });
-
+  */
     function emPreparacao() {
       if (cancel == 0) {
         //$("#waiting").hide();
