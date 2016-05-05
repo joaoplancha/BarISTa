@@ -296,22 +296,24 @@
     });
 
     $("#encomendar").click(function() {
-      var confirmation = confirm("Tem a certeza de que deseja encomendar este pedido?");
-      if (confirmation) {
-        var currentDate = new Date();
-        var month = currentDate.getMonth() + 1;
-        var date = "" + currentDate.getDate() + "/" + month + "/" + currentDate.getFullYear();
+      if (pedido.length > 0) {
+        var confirmation = confirm("Tem a certeza de que deseja encomendar este pedido?");
+        if (confirmation) {
+          var currentDate = new Date();
+          var month = currentDate.getMonth() + 1;
+          var date = "" + currentDate.getDate() + "/" + month + "/" + currentDate.getFullYear();
 
-        cancel = 0;
-        hideElements();
-        $("#pedido-feito").show();
-        $("#waiting").show();
-        $("#m").hide();
-        hideExtras();
-        console.log([pedido, total + "€", date])
-        historyArray.push([pedido, total + "€", date]);
-        pedido = [];
-        setTimeout(emPreparacao, 3000)
+          cancel = 0;
+          hideElements();
+          $("#pedido-feito").show();
+          $("#waiting").show();
+          $("#m").hide();
+          hideExtras();
+          console.log([pedido, total + "€", date])
+          historyArray.push([pedido, total + "€", date]);
+          pedido = [];
+          setTimeout(emPreparacao, 3000)
+        }
       }
     });
     /*
