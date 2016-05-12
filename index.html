@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>BarISTa</title> 
+    
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='http://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css'>
+    <link rel='stylesheet prefetch' href='http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css'>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+  
+  <head>
+    <title>BarISTa</title>
+  </head>
+
+<body>
+  <!-- Top Item Menu Bar -->
+  <div id="menu-items" class="row">
+    <div class="col-lg-2">
+      <button id="beer" class="btn btn-lg btn-item btn-block"><img src="http://s23.postimg.org/n0bs8x2qj/cerveja.png" height="60pt" />
+          <p>Cervejas</p></button>
+    </div>
+    <div class="col-lg-2">
+      <button id="wine" class="btn btn-lg btn-item btn-block"><img src="http://s24.postimg.org/idp3xutz9/vinho.png" height="60pt" />
+            <p>Vinhos</p></button>
+    </div>
+    <div class="col-lg-2">
+      <button id="cocktail" class="btn btn-lg btn-item btn-block"><img src="http://s28.postimg.org/wfxht3ex9/cocktail.png" height="60pt" />
+              <p>Cocktails</p></button>
+    </div>
+    <div class="col-lg-2">
+      <button id="snack" class="btn btn-lg btn-item btn-block"><img src="http://s15.postimg.org/pw6xjyc8b/onion_rings.png" height="60pt" />
+                <p>Snacks</p></button>
+    </div>
+    <div class="col-lg-2">
+      <button id="soda" class="btn btn-lg btn-item btn-block"><img src="http://s21.postimg.org/bp23dgg9z/cola.png" height="60pt" />
+                  <p>Refrigerantes</p></button>
+    </div>
+    <div class="col-lg-2">
+      <button id="coffee" class="btn btn-lg btn-item btn-block"><img src="http://s22.postimg.org/glngom3z5/cafe.png" height="60pt" />
+                    <p>Café</p></button>
+    </div>
+  </div>
+  <!-- Top Bar End -->
+  <!-- Container com o Pedido e o Historico -->
+
+
+  <div id="waiting" class="waiting"></div>
+
+  <div id="pedido-feito">
+    <h1 style="color:white" id="last-header" class="text-center">Pedido enviado. Por favor aguarde.</h1><button id="ultimo-cancelar" class="center-block btn btn-primary">Cancelar Pedido</button>
+  </div>
+
+  <div id="preparacao" class="preparacao"></div>
+
+  <div id="pedido-preparacao">
+    <h1 style="color:white" id="last-header" class="text-center">Em preparação... só mais uns minutos</h1>
+  </div>
+
+  <div id="acaminho" class="acaminho"></div>
+
+  <div id="pedido-acaminho">
+    <h1 style="color:white" id="last-header" class="text-center">A caminho da mesa</h1>
+  </div>
+  </div>
+
+  <div id="cancelado" class="cancelado"></div>
+
+  <div id="pedido-cancelado">
+    <h1 style="color:white" id="last-header" class="text-center">Pedido cancelado</h1>
+  </div>
+  </div>
+
+
+  <div class="container">
+
+    <div id="base" class="base col-md-7">
+      <table id="ementa" class="display">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Descrição</th>
+            <th>Informação Nutricional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="base_h" class="base col-md-7">
+      <h3>Histórico</h3>
+      <!--<label for="from">From</label>
+      <input type="text" id="from" name="from">
+      <label for="to">to</label>
+      <input type="text" id="to" name="to">-->
+      <table id="historico" class="display">
+        <thead>
+          <tr>
+            <th>Pedido</th>
+            <th>Preço</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="pedido" class="col-xs-1">
+      <h4 class="text-center">Pedido<button id="cancel-btn" class="btn btn-danger btn-md">Cancelar Pedido</button></h4>
+      <table id="tabela-pedido" class="table table-striped">
+        <tr>
+          <th class="total">Total:</th>
+          <th class="total" id="pedidoTotal"></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th></th>
+        </tr>
+      </table>
+    </div>
+    <div class="col-xs-1">
+      <button id="encomendar" class="btn btn-success">Encomendar</button>
+    </div>
+
+    <div id="extras-refrigerantes">
+      <h3>   Adicionar</h3>
+      <form role="form">
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Gelo</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Limao</label>
+        </div>
+      </form>
+      <button class="btn btn-success" id="addto"><p>Adicionar</p></button><button class="btn btn-danger" style="left:1%" id="cancel"><p>Cancelar</p></button>
+    </div>
+
+    <div id="extras-prego">
+      <h3>   Adicionar</h3>
+      <form role="form">
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Mostarda</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Batatas</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Ketchup</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio">Bem Passado</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio">Medio</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio">Mal Passado</label>
+        </div>
+      </form>
+      <button class="btn btn-success" id="addto2"><p>Adicionar</p></button><button class="btn btn-danger" style="left:1%" id="cancel2"><p>Cancelar</p></button>
+
+    </div>
+
+    <div id="extras-cafe">
+      <h3>   Adicionar</h3>
+      <form role="form">
+        <div class="radio">
+          <label><input type="radio" name="optradio">Açucar</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio">Adoçante</label>
+        </div>
+      </form>
+      <button class="btn btn-success" id="addto3"><p>Adicionar</p></button><button class="btn btn-danger" style="left:1%" id="cancel3"><p>Cancelar</p></button>
+    </div>
+
+    <div id="extras-generic">
+      <h3>   Adicionar</h3>
+      <form role="form">
+      </form>
+      <button class="btn btn-success" id="addto4"><p>Adicionar</p></button><button class="btn btn-danger" style="left:1%" id="cancel4"><p>Cancelar</p></button>
+    </div>
+
+  </div>
+
+  </container>
+
+  <!-- Fim Containter Pedido/Historico -->
+  <!-- Menu Button and sub-menu begin -->
+  <div class="row">
+    <div class="col-md-1 col-md-offset-9">
+      <span id="m-sub-menu">
+        <button id="menu" class="btn btn-block btn-primary">Menu</button>
+        <button id="history-btn" class="btn btn-block btn-primary">Histórico</button>
+      </span>
+    </div>
+    <div class="col-md-1">
+      <button id="m" class="btn btn-primary btn-lg btn-m"><strong>M</strong></button>
+    </div>
+  </div>
+  <!-- Menu button and sub-menu end -->
+</body>
+</body>
+
+</html>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
+
+<script src="js/index.js"></script>
+
+
+</body>
+
+</html>
