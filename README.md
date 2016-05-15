@@ -1,3 +1,3 @@
 # :cocktail: BarISTa :tropical_drink:
-Repositório IIPM
+Repositório de Introdução a Interfaces Pessoa-Máquina.
 
